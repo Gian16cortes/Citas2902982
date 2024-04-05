@@ -9,11 +9,9 @@ public class CitaEnfermero extends Cita {
     private String procedimiento;
     private Enfermero enfermero;
 
-    public CitaEnfermero(LocalDateTime fecha,
-            Paciente paciente,
-            String procedimiento,
+    public CitaEnfermero(LocalDateTime fecha, Paciente paciente, Consultorio consultorio, String procedimiento,
             Enfermero enfermero) {
-        super(fecha, paciente);
+        super(fecha, paciente, consultorio);
         this.procedimiento = procedimiento;
         this.enfermero = enfermero;
     }

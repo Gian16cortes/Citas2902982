@@ -5,30 +5,33 @@ import java.time.LocalDateTime;
 import org.citas2902082.java.entities.enums.Estados;
 
 public class CitaMedico extends Cita implements IAgendable {
-    private String motivo;
-    private Medico medico;
+
+    private String procedimiento;
+    private Enfermero enfermero;
     private Estados estados;
 
-    public CitaMedico(LocalDateTime fecha, Paciente paciente, String motivo, Medico medico) {
-        super(fecha, paciente);
-        this.motivo = motivo;
-        this.medico = medico;
+    public CitaMedico(LocalDateTime fecha, Paciente paciente, Consultorio consultorio, String procedimiento,
+            Enfermero enfermero, Estados estados) {
+        super(fecha, paciente, consultorio);
+        this.procedimiento = procedimiento;
+        this.enfermero = enfermero;
+        this.estados = estados;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public String getProcedimiento() {
+        return procedimiento;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setProcedimiento(String procedimiento) {
+        this.procedimiento = procedimiento;
     }
 
-    public Medico getMedico() {
-        return medico;
+    public Enfermero getEnfermero() {
+        return enfermero;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setEnfermero(Enfermero enfermero) {
+        this.enfermero = enfermero;
     }
 
     @Override
@@ -39,6 +42,7 @@ public class CitaMedico extends Cita implements IAgendable {
 
     @Override
     public void cancelarCita() {
+        System.out.println("Cita cancelada");
         this.estados = Estados.CANCELADA;
     }
 
